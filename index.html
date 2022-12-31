@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+     <style>
+
+            body
+            {
+                background-color: #064663;
+            }  
+
+            span
+            {
+                color: rosybrown;
+
+            }  
+            input[type="text"]
+            {    
+                width: 250px;    
+            }   
+            input[type="submit"], input[type="reset"] 
+            {    
+                 width: 77px;    
+                 height: 27px;    
+                 position: relative;
+                 left: 0px;    
+            }   
+            form
+            {    
+                 text-align: center;    
+                 position: relative;  
+                 top: 50px;
+                 color: red;
+            }  
+            input
+            {    
+                padding: 5px;    
+            } 
+      </style>
+    <script>
+            function timer()
+            {
+                var minute=4;
+                var second=60
+                setInterval(function()
+                {
+                    if (minute==0&&second==1)
+                    {
+                        document.getElementById("show_time").innerHTML="00:00";
+                        window.location.href="C:/Users/91756/OneDrive/Documents/newregistationjs.html";
+                    }
+                    else
+                    {
+                        second--;
+                        if(second==0)
+                        {
+                            minute--;
+                            second=60;
+                        }
+                        document.getElementById("show_time").innerHTML=minute+":"+second;
+                    }
+                },1000);
+            }
+            function validation()
+            {
+                  var UNAME=document.getElementById("uname").value;
+                  var MAIL=document.getElementById("mail").value;
+                  var PASSWORD=document.getElementById("password").value;
+                  var CONFIRM_PASSWORD=document.getElementById("confirm_password").value;
+                  var ADDRESS=document.getElementById("address").value;
+                  var MOBILE=document.getElementById("mobile").value;
+                  var result=true;
+                  if (UNAME=="")
+                  {
+                        document.getElementById("name_error"). innerHTML="Name is required"
+                        result=false;
+                  }
+                   if (MAIL=="")
+                  {
+                        document.getElementById("mail_id"). innerHTML="Email Id is required"
+                        result=false;
+                  }
+                  if (PASSWORD=="")
+                  {
+                        document.getElementById("mail_password"). innerHTML="password is required"
+                        result=false;
+                  }
+                  if (CONFIRM_PASSWORD=="")
+                  {
+                        document.getElementById("confirm_password_error"). innerHTML=" confirm password is required"
+                        result=false;
+                  }
+                   if (ADDRESS=="")
+                  {
+                        document.getElementById("address_error"). innerHTML="address is required"
+                        result=false;
+                  }
+                  
+                
+                  if (MOBILE=="")
+                  {
+                        document.getElementById("mobile_number"). innerHTML="Mobile number is required"
+                        result=false;
+                  }
+                  alert(result)
+                  return result;
+              }     
+    </script>
+</head>
+<body onload="timer()">
+    <p id="show_time" style="color: blue
+    ; font-size: 50px; position: absolute; left: 1070px; top: 85px; " ></p> 
+     <center><h1 style="font-size: 40px;color: red;">REGISTATION FROM</h1></center>
+     <form action="C:\Users\91756\OneDrive\Documents\makefromjs.html" onsubmit="return validation()">
+         Username<span>*</span>:- <input type="text" id="uname" placeholder="Enter Full Name">
+          <span id="name_error"></span><br><br>
+         Email <span>*</span>:- <input type="mail" id="mail" placeholder="Email" >
+            <span id="mail_id"></span><br><br>  
+         Password <span>*</span>:- <input type="password" id="password" placeholder="Enter Password" >
+             <span id="mail_password"></span><br><br>
+         Confirm Password <span>*</span>:- <input type="password" id="confirm_password" placeholder="Confirm Password" >
+             <span id="confirm_password_error"></span><br><br>
+        Address<span>*</span>:- <input type="textarea" size="40" name="address" placeholder=" Enter Full Address" id="address">
+          <span id="address_error"></span><br><br>
+         Mobile <span>*</span>:- <input type="text" maxlength="10" id="mobile" placeholder="Enter Mobile Number">
+              <span id="mobile_number"></span><br><br>
+              <input type="submit" >
+              <input type="reset" name="reset" value="Reset">
+</body>
+</html>
